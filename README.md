@@ -1,8 +1,8 @@
-#Stranger things wall all in one!
+# Stranger things wall all in one!
 
 In order to get around university internet restrictions, I origianlly set this up as 3 separate pieces, which you can find [here](https://github.com/CalebKussmaul/Stranger-Things-Wall)if you have similar needs. This version is reccomended as it is much simpler. 
 
-####All the hardware you will need (< $50):
+#### All the hardware you will need (< $50):
 
 1. Raspberry pi - any model should work, I'm using a B+
 2. [Wifi dongle](https://www.amazon.com/gp/product/B003MTTJOY) if model does not have wifi chip
@@ -12,7 +12,7 @@ In order to get around university internet restrictions, I origianlly set this u
 6. [WS2811 LEDs](https://www.amazon.com/gp/product/B01AG923GI/)
 7. 3' x 4' posterboard, paint, command strips
 
-####Instructions:
+#### Instructions:
 
 1. Install raspbian on pi
 2. Connect pi and ws2811 LED strip to external 5v power source in parallel (see wiring below)
@@ -34,7 +34,7 @@ Exit the program by entering "\exit" into the terminal
 
 Note: technically the data wire takes 5v data, and the pi GPIO outputs on 3.3v. You may need to use [a level shifter](https://www.amazon.com/gp/product/B00XW2L39K/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1) however it works fine without it for me.
 
-####Wiring:
+#### Wiring:
 
 ![Wiring](wall%20with%20level%20shifter.png)
 
