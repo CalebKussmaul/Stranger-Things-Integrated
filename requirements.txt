@@ -3,5 +3,3 @@
 flask
 connexion
 gevent
-urllib3
-neopixel
