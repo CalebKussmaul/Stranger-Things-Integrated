@@ -1,0 +1,43 @@
+---
+swagger: "2.0"
+info:
+  version: "1.1.0"
+  title: "Stranger Things Wall"
+
+# only used for testing
+host: "localhost:8080"
+schemes:
+- "http"
+basePath: "/stranger/"
+paths:
+  /:
+    get:
+      tags:
+      - "default"
+      summary: "HTML page to submit stuff"
+      operationId: "controllers.default_controller.index"
+      produces:
+      - "text/html; charset=utf-8"
+      responses:
+        200:
+          description: "index page"
+  /display:
+    post:
+      tags:
+      - "default"
+      summary: "Display message on stranger things board"
+      operationId: "controllers.default_controller.display"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "message"
+        in: "formData"
+        description: "message to display"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Message recieved"
+        400:
+          description: "Invalid input"
+definitions: {}

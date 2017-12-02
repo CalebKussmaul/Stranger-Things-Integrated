@@ -1,0 +1,7 @@
+#Install these with "pip2 install -r requirements.txt"
+#Also install rpi_ws281x from https://github.com/jgarff/rpi_ws281x
+flask
+connexion
+gevent
+urllib3
+neopixel
