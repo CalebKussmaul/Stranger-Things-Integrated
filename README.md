@@ -34,8 +34,8 @@ Note: technically the data wire takes 5v data, and the pi GPIO outputs on 3.3v. 
 
 #### Wiring:
 
-![Wiring](https://raw.githubusercontent.com/CalebKussmaul/Stranger-Things-Integrated/master/wall%20with%20level%20shifter.png)
+![Wiring](wall%20with%20level%20shifter.png)
 
 but you can probably get away with this:
 
-![Wiring without level shifter](https://raw.githubusercontent.com/CalebKussmaul/Stranger-Things-Integrated/master/wall%20without%20level%20shifter.png)
+![Wiring without level shifter](wall%20without%20level%20shifter.png)
