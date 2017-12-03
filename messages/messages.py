@@ -6,14 +6,10 @@ record_file = open("messages.txt", "a+")
 
 
 def add_message(msg):
-    record(msg)
     global msgs
     msgs.put(msg)
 
-
-def clear_messages():
-    global msgs
-    msgs = []
+    record(msg)
 
 
 def next_message():
