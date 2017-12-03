@@ -6,7 +6,7 @@ def index():
     return render_template('index.html')
 
 
-def display(message):
-    messages.add_message(messages)
-    print("recieved message: ", message)
+def display(msg):
+    messages.add_message(msg)
+    print("recieved message: ", msg)
     return None, 204

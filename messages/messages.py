@@ -17,7 +17,7 @@ def clear_messages():
 
 
 def next_message():
-    return msgs.get();
+    return msgs.get()
 
 
 def record(msg):
