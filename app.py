@@ -9,5 +9,5 @@ if __name__ == '__main__':
 
     app = connexion.App(__name__, specification_dir='./swagger/')
     app.add_api('swagger.yaml', arguments={'title': 'Stranger board'})
-    http_server = WSGIServer(('', 8080), app)
+    http_server = WSGIServer(('', 80), app)
     http_server.serve_forever()
