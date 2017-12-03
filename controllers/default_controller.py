@@ -7,6 +7,5 @@ def index():
 
 
 def display(message):
-    print("recieved message: ", message)
     messages.add_message(message)
     return None, 204
