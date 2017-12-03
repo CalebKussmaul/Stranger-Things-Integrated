@@ -8,7 +8,6 @@ record_file = open("messages.txt", "a+")
 def add_message(msg):
     global msgs
     msgs.put(msg)
-
     record(msg)
 
 
