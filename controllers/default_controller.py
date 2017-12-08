@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect
 from messages import messages
 
 
@@ -8,4 +8,6 @@ def index():
 
 def display(message):
     messages.add_message(message)
-    return None, 204
+#    return None, 204  # this works fine on desktop browsers, bugs on mobile.
+    return redirect("/stranger/")
+
