@@ -18,7 +18,7 @@ In order to get around university internet restrictions, I origianlly set this u
 2. Install raspbian on pi
 3. Connect pi and ws2811 LED strip to external 5v power source in parallel (see wiring below)
 4. Connect LED data wire to the pi [GPIO 10](https://www.raspberrypi-spy.co.uk/wp-content/uploads/2012/06/Raspberry-Pi-GPIO-Layout-Model-B-Plus-rotated-2700x900.png) (actual pin number 19, I know it's confusing)
-5. Install [rpi_ws281x library](https://github.com/jgarff/rpi_ws281x). SPI so follow the special instructions for SPI if you're using a Pi 3.
+5. Install [rpi_ws281x library](https://github.com/jgarff/rpi_ws281x). Follow the special instructions for SPI if you're using a Pi 3.
 6. From the ws2811 repo, install the [included python wrapper](https://github.com/jgarff/rpi_ws281x/tree/master/python) (run setup.py 'install' instead of 'build'). 
 7. Open terminal
 8. Enter "git clone 'https://github.com/CalebKussmaul/Stranger-Things-Integrated.git'"
