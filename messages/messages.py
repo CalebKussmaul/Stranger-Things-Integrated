@@ -1,5 +1,5 @@
 from datetime import datetime
-from Queue import Queue
+from queue import Queue
 
 msgs = Queue()
 record_file = open("messages.txt", "a+")

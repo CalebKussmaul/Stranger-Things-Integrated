@@ -1,0 +1,25 @@
+nohup: ignoring input
+Enter messages here. To quit, enter "\exit"
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/pi/Stranger-Things-Integrated/stranger.py", line 115, in listen_on_console
+    msg = input(prompt)
+OSError: [Errno 9] Bad file descriptor
+::ffff:127.0.0.1 - - [2022-04-24 17:53:54] "GET /stranger/ HTTP/1.0" 404 348 0.061569
+::ffff:127.0.0.1 - - [2022-04-24 17:53:57] "GET / HTTP/1.0" 200 654 0.136357
+::ffff:127.0.0.1 - - [2022-04-24 17:54:01] "POST /display HTTP/1.0" 302 424 0.058803
+::ffff:127.0.0.1 - - [2022-04-24 17:54:01] "GET / HTTP/1.0" 200 654 0.024302
+::ffff:127.0.0.1 - - [2022-04-24 17:57:26] "GET / HTTP/1.0" 200 654 0.024101
+::ffff:127.0.0.1 - - [2022-04-24 17:57:27] "GET /favicon.ico HTTP/1.0" 404 348 0.049634
+::ffff:127.0.0.1 - - [2022-04-24 17:57:31] "POST /display HTTP/1.0" 302 424 0.052444
+::ffff:127.0.0.1 - - [2022-04-24 17:57:31] "GET / HTTP/1.0" 200 654 0.024483
+::ffff:127.0.0.1 - - [2022-04-24 18:00:08] "POST /display HTTP/1.0" 302 424 0.049282
+::ffff:127.0.0.1 - - [2022-04-24 18:00:08] "GET / HTTP/1.0" 200 654 0.035017
+::ffff:127.0.0.1 - - [2022-04-24 18:01:24] "GET / HTTP/1.0" 200 654 0.036094
+::ffff:127.0.0.1 - - [2022-04-24 18:01:24] "GET / HTTP/1.0" 200 654 0.023839
+::ffff:127.0.0.1 - - [2022-04-24 18:01:38] "GET / HTTP/1.0" 200 654 0.054925
+::ffff:127.0.0.1 - - [2022-04-24 18:01:38] "GET / HTTP/1.0" 200 654 0.049283

@@ -9,5 +9,5 @@ def index():
 def display(message):
     messages.add_message(message)
 #    return None, 204  # this works fine on desktop browsers, bugs on mobile.
-    return redirect("/stranger/")
+    return redirect("https://1800butts.com/")
 

@@ -5,7 +5,7 @@ import re
 import time
 from threading import Thread
 
-from neopixel import *
+from rpi_ws281x import *
 
 from messages import messages
 
@@ -110,21 +110,21 @@ def display(msg):
 
 
 def listen_on_console(prompt):
-    print "Enter messages here. To quit, enter \"\\exit\""
+    print("Enter messages here. To quit, enter \"\\exit\"")
     while True:
-        msg = raw_input(prompt)
+        msg = input(prompt)
         if msg == "\\exit":
             os._exit(1)
         display(msg)
 
 
 def check_for_message():
-    print "Enter messages here. To quit, enter \"\\exit\""
+    print("Enter messages here. To quit, enter \"\\exit\"")
     global displaying
     while True:
         if not displaying:
             msg = messages.next_message()
-            print "displaying: ", msg
+            print("displaying: ", msg)
 #            if not re.search(r"([a-zA-Z])\1+", msg): # uncomment this for basic spam prevention
             display(msg[:50])
         time.sleep(1)

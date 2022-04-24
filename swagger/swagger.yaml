@@ -8,7 +8,7 @@ info:
 host: "localhost:8080"
 schemes:
 - "http"
-basePath: "/stranger/"
+basePath: "/"
 paths:
   /:
     get:
