@@ -1,6 +1,4 @@
-#First install rpi_ws281x from https://github.com/jgarff/rpi_ws281x
-#
-#Then install these by running "pip2 install -r requirements.txt". This may take a long time.
 flask
 connexion
 gevent
+rpi_ws281x
