@@ -1,7 +1,6 @@
 import colorsys
 import os
 import random
-import re
 import time
 from threading import Thread
 
@@ -125,7 +124,6 @@ def check_for_message():
         if not displaying:
             msg = messages.next_message()
             print("displaying: ", msg)
-#            if not re.search(r"([a-zA-Z])\1+", msg): # uncomment this for basic spam prevention
             display(msg[:50])
         time.sleep(1)
 

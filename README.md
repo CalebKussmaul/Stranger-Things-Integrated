@@ -14,18 +14,22 @@ In order to get around university internet restrictions, I origianlly set this u
 
 #### Instructions:
 
-1. String wires on posterboard and paint letters corresponding to LEDs. Use clear tape to point the LEDs to the letters. I suggest putting the input on the 'z' end if you want to put the pi below the board. 
-2. Install raspbian on pi
+1. String wires on posterboard and paint letters corresponding to LEDs. Use clear tape to point the LEDs to the letters.
+  - Note: I suggest putting the input connector on the 'z' end if you want to put the pi below the board. 
+2. Install Raspberry Pi OS on pi
 3. Connect pi and ws2811 LED strip to external 5v power source in parallel (see wiring below)
 4. Connect LED data wire to the pi [GPIO 10](https://www.raspberrypi-spy.co.uk/wp-content/uploads/2012/06/Raspberry-Pi-GPIO-Layout-Model-B-Plus-rotated-2700x900.png) (actual pin number 19, I know it's confusing)
-5. Install [rpi_ws281x library](https://github.com/jgarff/rpi_ws281x). Follow the special instructions for SPI if you're using a Pi 3.
-6. From the ws2811 repo, install the [included python wrapper](https://github.com/jgarff/rpi_ws281x/tree/master/python) (run setup.py 'install' instead of 'build'). 
-7. Open terminal
-8. Enter "git clone 'https://github.com/CalebKussmaul/Stranger-Things-Integrated.git'"
-9. Enter "cd Stranger-Things-Integrated"
-10. Enter "pip2 install -r requirements.txt" (and wait...)
-11. edit stranger.py and adjust character mapping to LEDs as necessary
-12. Enter "python2 app.py"
+5. Open terminal
+6. Enable SPI: 
+  - Enter `sudo raspi-config`
+  - Navigate to `Interfacing Options` and hit enter
+  - Navigate to `SPI` and hit enter
+  - Confirm and exit `raspi-config`
+7. Enter `git clone 'https://github.com/CalebKussmaul/Stranger-Things-Integrated.git'`
+8. Enter `cd Stranger-Things-Integrated`
+9. Enter `pip install -r requirements.txt` (and wait...)
+10. Edit the `stranger.py` file and adjust character mapping to the LED indexes as necessary
+11. Enter `python app.py`
 
 You should now be up and running. Test it by entering a message in the terminal, or over the web by going to http://\[your pi's IP address\]:8080/stranger/
 
