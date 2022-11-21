@@ -1,6 +1,5 @@
 from requests_oauthlib import OAuth2Session
-from whoop import secrets
-import secret_helper
+from whoop import secrets, secret_helper
 from urllib import parse
 import schedule
 
