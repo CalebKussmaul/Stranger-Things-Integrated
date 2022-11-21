@@ -1,6 +1,5 @@
-import secrets
+from whoop import secrets
 import importlib
-import schedule
 
 secrets_file = "secrets.py"
 

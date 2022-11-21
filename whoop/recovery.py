@@ -1,5 +1,5 @@
 import requests
-import secrets
+from whoop import secrets
 
 recovery_url = "https://api.prod.whoop.com/developer/v1/recovery"
 

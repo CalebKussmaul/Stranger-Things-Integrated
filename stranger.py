@@ -156,6 +156,7 @@ def check_for_message():
 def schedule_recovery():
     schedule.every().day.at("9:47").do(display_recovery)
 
+
 def clear_errors():
     """
     Sometimes pixels will randomly turn themselves on. This fixes them by resetting the board every 2 seconds
@@ -176,3 +177,4 @@ def start_client():
     t0.start()
     t1.start()
     t2.start()
+    schedule_recovery()
