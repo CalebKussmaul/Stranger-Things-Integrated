@@ -7,12 +7,11 @@ record_file = open("messages.txt", "a+")
 
 
 def is_spam(msg):
-    if re.search(r"([a-zA-Z]+)\1{3,}", msg): # finds 4+ consecutive repeated sequence
+    if re.search(r"([a-zA-Z]+)\1{3,}", msg):  # finds 4+ consecutive repeated sequence
         return True
-    if "https://" in msg or "http://" in msg:
+    if "https://" in msg or "http://" in msg or "@" in msg:
         return True
     return False
-
 
 
 def add_message(msg):

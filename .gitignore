@@ -2,3 +2,5 @@
 .idea
 .virtual-env
 messages.txt
+secrets.py
+my.log

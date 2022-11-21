@@ -2,11 +2,13 @@ import colorsys
 import os
 import random
 import time
+import schedule
 from threading import Thread
-
+from whoop import recovery
 from rpi_ws281x import *
-
 from messages import messages
+
+displaying = False
 
 LED_COUNT = 50
 GPIO_PIN = 10
@@ -58,6 +60,14 @@ def set_all_color_of():
         set_color(i, color_of(i))
 
 
+def set_all(color):
+    """
+    Sets all LEDs to a pseudorandom color, that is the same for each LED every time this function is called
+    """
+    for i in range(0, LED_COUNT):
+        set_color(i, color)
+
+
 def creep(start=0, n=50):
     """
     Sequentially illuminates each LED
@@ -81,29 +91,45 @@ def flash(n):
         strip.show()
         time.sleep(.5)
 
-displaying = False
+
+def display_recovery():
+    score = recovery.get_latest_recovery_score()
+    if score >= 80:
+        color = 0x00FF00
+    elif score >= 20:
+        color = 0xFFFF00
+    else:
+        color = 0xFF0000
+    set_all(color)
+    time.sleep(1)
+    set_all_color_of()
+    time.sleep(1)
+    set_all(color)
 
 
 def display(msg):
     global displaying
     displaying = True
-    for c in msg:
-        set_all((0, 0, 0))
-        if c.upper() in CHAR_IDX:
-            i = CHAR_IDX[c.upper()]
-            if i == "NONE":
-                "do nothing"
-            elif i == "FLASH":
-                flash(5)
-            elif i == "CREEP":
-                creep(50)
-            else:
-                set_color(i, color_of(i))
-            strip.show()
-            time.sleep(1)
+    if msg == "recovery":
+        display_recovery()
+    else:
+        for c in msg:
             set_all((0, 0, 0))
-            strip.show()
-            time.sleep(.2)
+            if c.upper() in CHAR_IDX:
+                i = CHAR_IDX[c.upper()]
+                if i == "NONE":
+                    "do nothing"
+                elif i == "FLASH":
+                    flash(5)
+                elif i == "CREEP":
+                    creep(50)
+                else:
+                    set_color(i, color_of(i))
+                strip.show()
+                time.sleep(1)
+                set_all((0, 0, 0))
+                strip.show()
+                time.sleep(.2)
     time.sleep(1)
     displaying = False
 
@@ -118,7 +144,6 @@ def listen_on_console(prompt):
 
 
 def check_for_message():
-    print("Enter messages here. To quit, enter \"\\exit\"")
     global displaying
     while True:
         if not displaying:
@@ -127,6 +152,9 @@ def check_for_message():
             display(msg[:50])
         time.sleep(1)
 
+
+def schedule_recovery():
+    schedule.every().day.at("9:47").do(display_recovery)
 
 def clear_errors():
     """
@@ -141,7 +169,7 @@ def clear_errors():
 
 
 def start_client():
-    t0 = Thread(target=listen_on_console, args=("",))
+    t0 = Thread(target=listen_on_console, args=())
     t1 = Thread(target=check_for_message, args=())
     t2 = Thread(target=clear_errors, args=())
 
