@@ -169,7 +169,7 @@ def clear_errors():
 
 
 def start_client():
-    t0 = Thread(target=listen_on_console, args=())
+    t0 = Thread(target=listen_on_console, args=("Enter message:",))
     t1 = Thread(target=check_for_message, args=())
     t2 = Thread(target=clear_errors, args=())
 
