@@ -4,7 +4,7 @@ import random
 import time
 import schedule
 from threading import Thread
-from whoop import recovery
+from whoop import recovery, oauth
 from rpi_ws281x import *
 from messages import messages
 
@@ -154,7 +154,7 @@ def check_for_message():
 
 
 def schedule_recovery():
-    schedule.every().day.at("9:47").do(display_recovery)
+    schedule.every().day.at("09:47").do(display_recovery)
 
 
 def clear_errors():
@@ -178,3 +178,5 @@ def start_client():
     t1.start()
     t2.start()
     schedule_recovery()
+    oauth.refresh_token()
+    oauth.setup_token_refresh_scheduler()

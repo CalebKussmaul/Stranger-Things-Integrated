@@ -40,4 +40,4 @@ def refresh_token():
 
 
 def setup_token_refresh_scheduler():
-    schedule.every().day.at("7:45").do(refresh_token)
+    schedule.every().day.at("07:45").do(refresh_token)
