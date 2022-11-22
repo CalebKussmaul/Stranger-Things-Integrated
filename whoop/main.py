@@ -1,11 +1,4 @@
-from requests_oauthlib import OAuth2Session
+import oauth
 
-import recovery
-import secrets
-import secret_helper
-from urllib import parse
-
-
-# authenticate(get_code=True)
-# secret_helper.write_secrets()
-recovery.get_latest_recovery_score()
+# oauth.authenticate(get_code=True)
+oauth.refresh_token()

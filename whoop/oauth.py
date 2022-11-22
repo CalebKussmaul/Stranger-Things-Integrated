@@ -32,7 +32,7 @@ def authenticate(get_code):
 
 
 def refresh_token():
-    response = oauth.refresh_token(token_url=token_url, include_client_id=True, refresh_token=secrets.refresh_token, client_secret=secrets.client_secret)
+    response = oauth.refresh_token(token_url=token_url, refresh_token=secrets.refresh_token, client_secret=secrets.client_secret)
     print(f"refresh token response: {response}")
     secret_helper.update_secrets_from_response(response=response)
     return response
