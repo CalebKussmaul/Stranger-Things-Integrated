@@ -96,9 +96,9 @@ def display_recovery():
         traceback.print_exc()
         return
 
-    if score >= 80:
+    if score >= 66:
         color = 0, 255, 0
-    elif score >= 20:
+    elif score >= 33:
         color = 255, 255, 0
     else:
         color = 255, 0, 0
