@@ -3,6 +3,7 @@ import os
 import random
 import time
 import schedule
+import traceback
 from threading import Thread
 from whoop import recovery, oauth
 from rpi_ws281x import *
@@ -97,6 +98,7 @@ def display_recovery():
         score = recovery.get_latest_recovery_score()
     except:
         print("error getting recovery, likely need to reauth")
+        traceback.print_exc()
         return
 
     if score >= 80:
