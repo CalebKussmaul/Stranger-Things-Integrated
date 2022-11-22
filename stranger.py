@@ -97,11 +97,11 @@ def display_recovery():
         return
 
     if score >= 80:
-        color = 0x00FF00
+        color = 0, 255, 0
     elif score >= 20:
-        color = 0xFFFF00
+        color = 255, 255, 0
     else:
-        color = 0xFF0000
+        color = 255, 0, 0
     set_all(color)
     time.sleep(1)
     set_all_color_of()
