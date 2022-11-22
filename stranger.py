@@ -35,11 +35,6 @@ def set_color(led, c):
     strip.setPixelColor(led, Color(*c))
 
 
-def set_all(color):
-    for i in range(0, LED_COUNT):
-        set_color(i, color)
-
-
 def color_of(i):
     """
     This function generates a color based on the index of an LED. This will always return the same color for a given
@@ -63,7 +58,7 @@ def set_all_color_of():
 
 def set_all(color):
     """
-    Sets all LEDs to a pseudorandom color, that is the same for each LED every time this function is called
+    Sets all LEDs to a specific color
     """
     for i in range(0, LED_COUNT):
         set_color(i, color)
@@ -77,7 +72,7 @@ def creep(start=0, n=50):
     :param n: Number between 1 and LED_COUNT of lights to creep.
     """
     for i in range(start, n):
-        set_color((i-1) % LED_COUNT, (0, 0, 0))
+        set_color((i - 1) % LED_COUNT, (0, 0, 0))
         set_color(i % LED_COUNT, rand_color())
         strip.show()
         time.sleep(1)
