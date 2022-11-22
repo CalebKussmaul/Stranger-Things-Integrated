@@ -35,7 +35,6 @@ def refresh_token():
     response = oauth.refresh_token(token_url=token_url,
                                    refresh_token=secrets.refresh_token,
                                    client_secret=secrets.client_secret,
-                                   proxies=proxies,
                                    client_id=secrets.client_id)
     print(f"refresh token response: {response}")
     secret_helper.update_secrets_from_response(response=response)
