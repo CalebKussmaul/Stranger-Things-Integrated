@@ -1,7 +1,7 @@
 from whoop import secrets
 import importlib
 
-secrets_file = "secrets.py"
+secrets_file = "/home/pi/Stranger-Things-Integrated/whoop/secrets.py"
 
 
 def update_secrets_from_response(response):
