@@ -103,10 +103,14 @@ def display_recovery():
     else:
         color = 255, 0, 0
     set_all(color)
+    strip.show()
     time.sleep(1)
     set_all_color_of()
+    strip.show()
     time.sleep(1)
     set_all(color)
+    strip.show()
+    time.sleep(1)
 
 
 def display(msg):
