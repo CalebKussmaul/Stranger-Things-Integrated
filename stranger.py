@@ -93,7 +93,12 @@ def flash(n):
 
 
 def display_recovery():
-    score = recovery.get_latest_recovery_score()
+    try:
+        score = recovery.get_latest_recovery_score()
+    except:
+        print("error getting recovery, likely need to reauth")
+        return
+
     if score >= 80:
         color = 0x00FF00
     elif score >= 20:
@@ -178,5 +183,8 @@ def start_client():
     t1.start()
     t2.start()
     schedule_recovery()
-    oauth.refresh_token()
+    try:
+        oauth.refresh_token()
+    except:
+        oauth.authenticate(get_code=True)
     oauth.setup_token_refresh_scheduler()
