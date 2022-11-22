@@ -175,6 +175,11 @@ def clear_errors():
 
 
 def start_client():
+    try:
+        oauth.refresh_token()
+    except:
+        oauth.authenticate(get_code=True)
+
     t0 = Thread(target=listen_on_console, args=("Enter message:",))
     t1 = Thread(target=check_for_message, args=())
     t2 = Thread(target=clear_errors, args=())
@@ -183,8 +188,5 @@ def start_client():
     t1.start()
     t2.start()
     schedule_recovery()
-    try:
-        oauth.refresh_token()
-    except:
-        oauth.authenticate(get_code=True)
+
     oauth.setup_token_refresh_scheduler()
