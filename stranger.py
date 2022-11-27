@@ -138,7 +138,7 @@ def display(msg):
     displaying = False
 
 
-def listen_on_console(prompt):
+def check_console(prompt):
     print("Enter messages here. To quit, enter \"\\exit\"")
     while True:
         msg = input(prompt)
@@ -151,6 +151,7 @@ def check_for_message():
     global displaying
     while True:
         if not displaying:
+            # blocks until a message is available
             msg = messages.next_message()
             print("displaying: ", msg)
             display(msg[:50])
@@ -159,6 +160,12 @@ def check_for_message():
 
 def schedule_recovery():
     schedule.every().day.at("09:47").do(display_recovery)
+
+
+def check_schedule():
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 def clear_errors():
@@ -179,13 +186,16 @@ def start_client():
     except:
         oauth.authenticate(get_code=True)
 
-    t0 = Thread(target=listen_on_console, args=("Enter message:",))
+    schedule_recovery()
+    oauth.setup_token_refresh_scheduler()
+
+    t0 = Thread(target=check_console, args=("Enter message:",))
     t1 = Thread(target=check_for_message, args=())
-    t2 = Thread(target=clear_errors, args=())
+    t2 = Thread(target=check_schedule, args=())
+    t3 = Thread(target=clear_errors, args=())
 
     t0.start()
     t1.start()
     t2.start()
-    schedule_recovery()
+    t3.start()
 
-    oauth.setup_token_refresh_scheduler()
