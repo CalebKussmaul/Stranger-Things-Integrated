@@ -92,9 +92,14 @@ def display_recovery():
     try:
         score = recovery.get_latest_recovery_score()
     except:
-        print("error getting recovery, likely need to reauth")
-        traceback.print_exc()
-        return
+        print("error getting recovery, trying reauth")
+        try:
+            oauth.refresh_token()
+            score = recovery.get_latest_recovery_score()
+        except:
+            print("error reauthing for recovery")
+            traceback.print_exc()
+            return
 
     if score >= 66:
         color = 0, 255, 0
