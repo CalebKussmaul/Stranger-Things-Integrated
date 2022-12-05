@@ -101,6 +101,7 @@ def display_recovery():
             traceback.print_exc()
             return
 
+    print(f"displaying recovery score of {score}")
     if score >= 66:
         color = 0, 255, 0
     elif score >= 33:
