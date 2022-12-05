@@ -103,11 +103,11 @@ def display_recovery():
 
     print(f"displaying recovery score of {score}")
     if score >= 66:
-        color = 0, 255, 0
+        color = 255, 0, 0
     elif score >= 33:
         color = 255, 255, 0
     else:
-        color = 255, 0, 0
+        color = 0, 255, 0
     for i in range(0, 4):
         set_all_color_of()
         strip.show()
